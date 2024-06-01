@@ -1,0 +1,90 @@
+[
+	{
+		"Name": "Mighty_Bananas",
+		"Description": "NSLOCTEXT(\"[3A97BB97CCA363224F0159731DA190FC]\", \"B306759E444352C94381F0BD13CF80A8\", \"This fruit grows mainly in tropical forests of the Faron region. When it\\'s used as an ingredient, the resulting dish will temporarily increase your attack power.\")",
+		"Thumbnail": "/Script/Engine.Texture2D'/Game/Demo_GAS/Assets/UI/3DModel/Textures/T_Banana_Base_color.T_Banana_Base_color'",
+		"StackSize": 10,
+		"Power": 3.5,
+		"Mesh": "None"
+	},
+	{
+		"Name": "Apple",
+		"Description": "NSLOCTEXT(\"[3A97BB97CCA363224F0159731DA190FC]\", \"B306759E444352C94381F0BD13CF80A8\", \"A common fruit found on trees all around Hyrule. Eat it fresh, or cook it to increase its effect.\")",
+		"Thumbnail": "/Script/Engine.Texture2D'/Game/Demo_GAS/Assets/UI/3DModel/Textures/T_Banana_Base_color.T_Banana_Base_color'",
+		"StackSize": 10,
+		"Power": 4.5,
+		"Mesh": "None"
+	},
+	{
+		"Name": "Fortified_Pumpkin",
+		"Description": "NSLOCTEXT(\"[3A97BB97CCA363224F0159731DA190FC]\", \"B306759E444352C94381F0BD13CF80A8\", \"An extremely tough pumpkin raised in village fields. When cooked, that toughness manifests itself by considerably upping defense.\")",
+		"Thumbnail": "/Script/Engine.Texture2D'/Game/Demo_GAS/Assets/UI/3DModel/Textures/T_Banana_Base_color.T_Banana_Base_color'",
+		"StackSize": 5,
+		"Power": 5,
+		"Mesh": "None"
+	},
+	{
+		"Name": "Hydromelon",
+		"Description": "NSLOCTEXT(\"[3A97BB97CCA363224F0159731DA190FC]\", \"B306759E444352C94381F0BD13CF80A8\", \"This resilient fruit can flourish even in the heat of the desert. The hydrating liquid inside provides a cooling effect that, when cooked, increases your heat resistance.\")",
+		"Thumbnail": "/Script/Engine.Texture2D'/Game/Demo_GAS/Assets/UI/3DModel/Textures/T_Banana_Base_color.T_Banana_Base_color'",
+		"StackSize": 10,
+		"Power": 6.5,
+		"Mesh": "None"
+	},
+	{
+		"Name": "Spicy_Pepper",
+		"Description": "NSLOCTEXT(\"[3A97BB97CCA363224F0159731DA190FC]\", \"B306759E444352C94381F0BD13CF80A8\", \"This pepper is exploding with spice. Cook with it to create dishes that will raise your body temperature and help you withstand the cold.\")",
+		"Thumbnail": "/Script/Engine.Texture2D'/Game/Demo_GAS/Assets/UI/3DModel/Textures/T_Banana_Base_color.T_Banana_Base_color'",
+		"StackSize": 10,
+		"Power": 6,
+		"Mesh": "None"
+	},
+	{
+		"Name": "Daybreaker",
+		"Description": "NSLOCTEXT(\"[3A97BB97CCA363224F0159731DA190FC]\", \"B306759E444352C94381F0BD13CF80A8\", \"This shield was cherished by the Gerudo Champion Urbosa. The gold used to make it was handpicked to ensure a design that is both lightweight and very durable.\")",
+		"Thumbnail": "/Script/Engine.Texture2D'/Game/Demo_GAS/Assets/UI/3DModel/Textures/T_Banana_Base_color.T_Banana_Base_color'",
+		"StackSize": 1,
+		"Power": 6.5,
+		"Mesh": "None"
+	},
+	{
+		"Name": "Royal-guards-shield",
+		"Description": "NSLOCTEXT(\"[3A97BB97CCA363224F0159731DA190FC]\", \"B306759E444352C94381F0BD13CF80A8\", \"This shield was forged using ancient Sheikah technology. It boasts extremely high stopping power, but its structural weakness made its low durability impractical for combat.\")",
+		"Thumbnail": "/Script/Engine.Texture2D'/Game/Demo_GAS/Assets/UI/3DModel/Textures/T_Banana_Base_color.T_Banana_Base_color'",
+		"StackSize": 1,
+		"Power": 8,
+		"Mesh": "None"
+	},
+	{
+		"Name": "Steel-lizal-shield",
+		"Description": "NSLOCTEXT(\"[3A97BB97CCA363224F0159731DA190FC]\", \"B306759E444352C94381F0BD13CF80A8\", \"This Lizal shield is adorned with several metal shells as a means of reinforcement. Its defensive capabilities are high, but its weight requires a skilled soldier to bear.\")",
+		"Thumbnail": "/Script/Engine.Texture2D'/Game/Demo_GAS/Assets/UI/3DModel/Textures/T_Banana_Base_color.T_Banana_Base_color'",
+		"StackSize": 1,
+		"Power": 10,
+		"Mesh": "None"
+	},	
+	{
+		"Name": "Blizzard-rod",
+		"Description": "NSLOCTEXT(\"[3A97BB97CCA363224F0159731DA190FC]\", \"B306759E444352C94381F0BD13CF80A8\", \"A magical rod that can cast extreme cold in a wide range. These are crafted from refined ice found at the summit of Hebra peak. It will break when depleted.\")",
+		"Thumbnail": "/Script/Engine.Texture2D'/Game/Demo_GAS/Assets/UI/3DModel/Textures/T_Banana_Base_color.T_Banana_Base_color'",
+		"StackSize": 1,
+		"Power": 10,
+		"Mesh": "None"
+	},
+	{
+		"Name": "Knight's_Broadsword",
+		"Description": "NSLOCTEXT(\"[3A97BB97CCA363224F0159731DA190FC]\", \"B306759E444352C94381F0BD13CF80A8\", \"Knights of Hyrule once carried this sword. These days it's the weapon of choice for seasoned adventurers thanks to its ease of use and high attack power.\")",
+		"Thumbnail": "/Script/Engine.Texture2D'/Game/Demo_GAS/Assets/UI/3DModel/Textures/T_Banana_Base_color.T_Banana_Base_color'",
+		"StackSize": 1,
+		"Power": 15,
+		"Mesh": "None"
+	},
+	{
+		"Name": "Spiked_Boko_Club",
+		"Description": "NSLOCTEXT(\"[3A97BB97CCA363224F0159731DA190FC]\", \"B306759E444352C94381F0BD13CF80A8\", \"A reinforced Bokoblin club made to maximize damage. The sharpened bones jabbed into make it a brutal weapon.\")",
+		"Thumbnail": "/Script/Engine.Texture2D'/Game/Demo_GAS/Assets/UI/3DModel/Textures/T_Banana_Base_color.T_Banana_Base_color'",
+		"StackSize": 1,
+		"Power": 25,
+		"Mesh": "None"
+	}
+]
