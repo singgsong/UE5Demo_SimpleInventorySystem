@@ -15,7 +15,7 @@
 void UInventoryWidget::NativePreConstruct()
 {
 	Super::NativePreConstruct();
-	//SetIsFocusable(true);
+	SetIsFocusable(true);
 	//SetFocus();
 }
 

@@ -149,7 +149,6 @@ bool UInventoryComponent::TraceItemToPickUp(FItemSlot& InItemInfo, AActor*& InIt
 void UInventoryComponent::OpenInventory()
 {
 	if (!InventoryWidget) return;
-	//InventoryWidget->SetUserFocus(PlayerController);
 	InventoryWidget->AddToViewport();
 
 	// 在装备界面显示血条
@@ -158,7 +157,10 @@ void UInventoryComponent::OpenInventory()
 
 	PlayerController->bShowMouseCursor = true;
 	PlayerController->SetInputMode(FInputModeUIOnly());
-	InventoryWidget->SetKeyboardFocus();
+
+	InventoryWidget->SetUserFocus(PlayerController);
+	//InventoryWidget->SetKeyboardFocus(); // 用这个也行
+
 	InventoryWidget->UpdateItemWidgets(InventoryItem);
 }
 
