@@ -5,9 +5,6 @@
 #include "StructData.h"
 #include "InventoryDragDropOperation.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class DEMO_GAS_API UInventoryDragDropOperation : public UDragDropOperation
 {

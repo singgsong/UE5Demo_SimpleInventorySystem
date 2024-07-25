@@ -15,9 +15,6 @@ class UInventoryComponent;
 class UDraggingWidget;
 class UInventoryDragDropOperation;
 
-/**
- * 
- */
 UCLASS()
 class DEMO_GAS_API USlotWidget : public UUserWidget
 {
@@ -50,6 +47,11 @@ protected:
 
 	UInventoryDragDropOperation* CreateDragDropOperation(TSubclassOf<UInventoryDragDropOperation> Operation);
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FItemSlot Item;
+
+	FString UseButtonText;
+
 	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
 	TObjectPtr<USizeBox> QuantityBox;
 
@@ -65,11 +67,6 @@ protected:
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UImage> EquippedImage;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FItemSlot Item;
-
-	int32 Index = 0;
-
 	UPROPERTY(BlueprintReadWrite)
 	TObjectPtr<UItemInfoBoardWidget> ItemInfoBoardWidget;
 
@@ -79,16 +76,20 @@ protected:
 	UPROPERTY()
 	TObjectPtr<UActionMenuWidget> ActionMenuWidget;
 
-	FString UseButtonText;
 	FItemProperty* ItemProperty;
-	bool bEquipped = false;
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UDraggingWidget> DraggingWidgetClass;
+
+	UPROPERTY()
 	TObjectPtr<UDraggingWidget> DraggingWidget;
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UInventoryDragDropOperation> DragDropOperationClass;
+
+	int32 Index = 0;
+
+	bool bEquipped = false;
 
 public:
 	bool bReadyToDragOneItem = false;

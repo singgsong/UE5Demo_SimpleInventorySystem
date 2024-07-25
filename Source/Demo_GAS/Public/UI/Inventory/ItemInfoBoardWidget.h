@@ -8,9 +8,6 @@
 class UTextBlock;
 class UImage;
 
-/**
- * 
- */
 UCLASS()
 class DEMO_GAS_API UItemInfoBoardWidget : public UUserWidget
 {
@@ -21,8 +18,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void UpdateItemInfo();
 
-	
 protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FItemSlot Item;
+
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UTextBlock> ItemName;
 
@@ -40,9 +39,6 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<UTexture2D> Armor;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FItemSlot Item;
 
 public:
 

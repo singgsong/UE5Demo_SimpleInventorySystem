@@ -12,6 +12,7 @@
 #include "Interface/Interaction.h"
 #include "EnumFile.h"
 #include "Components/SceneCaptureComponent2D.h"
+#include <StructData.h>
 
 ADemo_GASCharacter::ADemo_GASCharacter()
 {

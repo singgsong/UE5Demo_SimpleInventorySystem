@@ -12,9 +12,6 @@ class UInventoryComponent;
 class USlotWidget;
 class AItem;
 
-/**
- * 
- */
 UCLASS()
 class DEMO_GAS_API UActionMenuWidget : public UUserWidget
 {
@@ -39,6 +36,9 @@ protected:
 	UFUNCTION()
 	void DropItem();
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FItemSlot Item;
+
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<USizeBox> ActionMenuSizeBox;
 
@@ -51,20 +51,18 @@ protected:
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UTextBlock> UseButton_Text;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FItemSlot Item;
-
 	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<UInventoryComponent> InventoryComp;
 
 	FItemProperty* ItemProperty;
 
-	int32 Index = 0;
-
+	UPROPERTY()
 	TObjectPtr<USlotWidget> SlotWidget;
 
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AItem> ItemActorClass;
+
+	int32 Index = 0;
 
 public:
 	UButton* GetUseButton() const { return UseButton; }

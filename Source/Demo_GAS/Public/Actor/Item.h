@@ -18,13 +18,13 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleDefaultsOnly)
-	TObjectPtr<UStaticMeshComponent> Mesh;
-
 	UPROPERTY(EditAnywhere)
 	FItemSlot ItemInfo;
 
+	UPROPERTY(VisibleDefaultsOnly)
+	TObjectPtr<UStaticMeshComponent> Mesh;
+
 public:
-	FItemSlot GetItemSlot() const { return ItemInfo; }
-	void SetItemSlot(FItemSlot InItemInfo) { ItemInfo = InItemInfo; }
+	FORCEINLINE FItemSlot GetItemSlot() const { return ItemInfo; }
+	FORCEINLINE void SetItemSlot(FItemSlot InItemInfo) { ItemInfo = InItemInfo; }
 };

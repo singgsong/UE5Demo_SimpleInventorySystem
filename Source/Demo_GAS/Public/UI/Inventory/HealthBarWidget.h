@@ -8,10 +8,6 @@ class UImage;
 class UWrapBox;
 class UHeartWidget;
 
-
-/**
- * 
- */
 UCLASS()
 class DEMO_GAS_API UHealthBarWidget : public UUserWidget
 {

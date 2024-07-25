@@ -14,9 +14,6 @@ class UItemInfoBoardWidget;
 class AItem;
 class UInventoryComponent;
 
-/**
- * 
- */
 UCLASS()
 class DEMO_GAS_API UInventoryWidget : public UUserWidget
 {
@@ -74,20 +71,15 @@ protected:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<USlotWidget> SlotWidgetClass;
 
+	UPROPERTY()
 	TObjectPtr<USlotWidget> SlotWidget;
-
-	//bool bReadyToDragOneItem = false;
 
 	UPROPERTY(meta = (BindeWidget), BlueprintReadOnly)
 	TObjectPtr<UItemInfoBoardWidget> ItemInfoBroadWidget;
 
-	//UPROPERTY(EditDefaultsOnly)
-	//TSubclassOf<AItem> ItemActorClass;
-
 public:
+	UPROPERTY()
 	TObjectPtr<UInventoryComponent> InventoryComp;
 
 	UItemInfoBoardWidget* GetItemInfoBroadWidget() { return ItemInfoBroadWidget; }
-	
-	//bool IsReadyToDragOneItem(bool bReady) { return bReady; }
 };

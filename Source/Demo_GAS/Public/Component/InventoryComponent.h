@@ -43,8 +43,17 @@ protected:
 
 	void PickUpItemToInventory();
 
-#pragma region 显示库存界面
-	// 输入行为
+public:
+	FItemSlot EquippedWeapon;
+	FItemSlot EquippedShield;
+
+	UPROPERTY(BlueprintReadWrite)
+	TObjectPtr<UItemInfoBoardWidget> ItemInfoBoardWidget;
+
+protected:
+	UPROPERTY(EditAnywhere)
+	FInventoryItem InventoryItem;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Input)
 	TObjectPtr<UInputAction> InventoryAction;
 
@@ -69,12 +78,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Class)
 	TSubclassOf<UItemInfoBoardWidget> ItemInfoBoardWidgetClass;
 
-#pragma endregion
-
 	UPROPERTY()
 	TObjectPtr<ADemo_GASCharacter> PlayerCharacter;
 
-#pragma region 血条
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Class)
 	TSubclassOf<UHealthBarWidget> HealthBarWidgetClass;
 
@@ -87,13 +93,8 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	float CurrentHealth = MaxHealth;
 
-#pragma endregion
-	
 	UPROPERTY(VisibleAnywhere)
 	int32 MoneyAmount = 0;
-
-	UPROPERTY(EditAnywhere)
-	FInventoryItem InventoryItem;
 
 	UPROPERTY(EditAnywhere)
 	int32 MaxWeaponSlotQuantities = 10;
@@ -103,23 +104,17 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	int32 MaxFoodSlotQuantities = 10;
+
 public:
+	FORCEINLINE UInventoryWidget* GetInventoryWidget() const { return InventoryWidget; }
+	FORCEINLINE UHealthBarWidget* GetHealthBarWidget() const { return HealthBarWidget; }
+	FORCEINLINE float GetCurrentHealth() const { return CurrentHealth; }
+	FORCEINLINE ADemo_GASCharacter* GetPlayerCharacter() const { return PlayerCharacter; }
 
-	UPROPERTY(BlueprintReadWrite)
-	TObjectPtr<UItemInfoBoardWidget> ItemInfoBoardWidget;
+	FORCEINLINE FInventoryItem GetInventoryItem() const { return InventoryItem; }
+	FORCEINLINE FInventoryItem& GetInventoryItem_Ref() { return InventoryItem; }
 
-	FItemSlot EquippedWeapon;
-	FItemSlot EquippedShield;
-
-	UInventoryWidget* GetInventoryWidget() const { return InventoryWidget; }
-	UHealthBarWidget* GetHealthBarWidget() const { return HealthBarWidget; }
-	float GetCurrentHealth() const { return CurrentHealth; }
-	ADemo_GASCharacter* GetPlayerCharacter() const { return PlayerCharacter; }
-
-	FInventoryItem GetInventoryItem() const { return InventoryItem; }
-	FInventoryItem& GetInventoryItem_Ref() { return InventoryItem; }
-
-	void SetMoneyAmount(int32 Value) { MoneyAmount = Value; }
-	void SetCurrentHealth(float Value) { CurrentHealth = Value; }
-	void SetInventoryItem(const FInventoryItem InInventoryItem) { InventoryItem = InInventoryItem; }
+	FORCEINLINE void SetMoneyAmount(int32 Value) { MoneyAmount = Value; }
+	FORCEINLINE void SetCurrentHealth(float Value) { CurrentHealth = Value; }
+	FORCEINLINE void SetInventoryItem(const FInventoryItem InInventoryItem) { InventoryItem = InInventoryItem; }
 };

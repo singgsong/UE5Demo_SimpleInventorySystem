@@ -5,8 +5,6 @@
 #include "StructData.h"
 #include "MoneyActor.generated.h"
 
-
-
 UCLASS()
 class DEMO_GAS_API AMoneyActor : public AActor
 {
@@ -18,18 +16,18 @@ public:
 
 	virtual void OnConstruction(const FTransform& Transform) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	float Health = 0.f;
-
 protected:
 	virtual void BeginPlay() override;
-
-	UPROPERTY(EditDefaultsOnly)
-	TObjectPtr<UStaticMeshComponent> Mesh;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FDataTableRowHandle MoneysDataTable;
 
+	UPROPERTY(EditDefaultsOnly)
+	TObjectPtr<UStaticMeshComponent> Mesh;
+
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float Health = 0.f;
+
 	FORCEINLINE const FDataTableRowHandle& GetMoneysDataTable() const { return MoneysDataTable; }
 };

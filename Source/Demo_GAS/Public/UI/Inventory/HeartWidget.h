@@ -12,9 +12,6 @@ enum class EHeartStyle : uint8
 	EHS_Empty
 };
 
-/**
- * 
- */
 UCLASS()
 class DEMO_GAS_API UHeartWidget : public UUserWidget
 {

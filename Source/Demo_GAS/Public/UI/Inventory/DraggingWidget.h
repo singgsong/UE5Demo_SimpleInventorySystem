@@ -7,9 +7,6 @@
 
 class UImage;
 
-/**
- * 
- */
 UCLASS()
 class DEMO_GAS_API UDraggingWidget : public UUserWidget
 {
@@ -19,10 +16,10 @@ public:
 	virtual void NativePreConstruct() override;
 
 protected:
+	FItemSlot Item;
+
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UImage> Image;
-		
-	FItemSlot Item;
 
 public:
 	void SetItem(FItemSlot InItem) { Item = InItem; }
