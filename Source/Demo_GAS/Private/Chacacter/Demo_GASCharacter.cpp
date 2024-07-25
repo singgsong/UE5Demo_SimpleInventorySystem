@@ -9,14 +9,13 @@
 #include "InputActionValue.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "PhysicsEngine/PhysicsHandleComponent.h"
-#include <Actor/ItemBase.h>
 #include "Interface/Interaction.h"
 #include "EnumFile.h"
 #include "Components/SceneCaptureComponent2D.h"
 
 ADemo_GASCharacter::ADemo_GASCharacter()
 {
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 		
 	bUseControllerRotationPitch = false;
@@ -42,9 +41,6 @@ ADemo_GASCharacter::ADemo_GASCharacter()
 	Camera->SetupAttachment(CameraBoom); 
 	Camera->bUsePawnControlRotation = false; 
 
-	UnVisibleHand = CreateDefaultSubobject<USceneComponent>(TEXT("UnVisibleHand"));
-	UnVisibleHand->SetupAttachment(CameraBoom);
-	
 	RightHand = CreateDefaultSubobject<USceneComponent>(TEXT("RightHand"));
 	RightHand->SetupAttachment(GetMesh());
 	
@@ -59,26 +55,6 @@ ADemo_GASCharacter::ADemo_GASCharacter()
 	Shield = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Shield"));
 	Shield->SetupAttachment(GetMesh(), FName("LeftHand"));
 	Shield->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-}
-
-void ADemo_GASCharacter::Tick(float DeltaSeconds)
-{
-	Super::Tick(DeltaSeconds);
-
-	FVector StartLoca = Camera->GetComponentLocation();
-	FVector Forward = Camera->GetForwardVector();
-	FVector EndLoca = InteractionDistance * Forward + StartLoca;
-	//DrawDebugSphere(GetWorld(), EndLoca, 10.f, 12, FColor::Yellow);
-	bTracedItem =  UKismetSystemLibrary::LineTraceSingleForObjects(
-		this,
-		StartLoca, 
-		EndLoca, 
-		ItemTypes, 
-		false, 
-		ActorsToIgnore, 
-		EDrawDebugTrace::None, 
-		OutHit,
-		true);
 }
 
 UStaticMesh* ADemo_GASCharacter::GetWeaponMesh() const
@@ -116,9 +92,6 @@ void ADemo_GASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ADemo_GASCharacter::Move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ADemo_GASCharacter::Look);
-		
-		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &ADemo_GASCharacter::Interact);
-		EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Started, this, &ADemo_GASCharacter::Throw);
 	}
 }
 
@@ -153,40 +126,3 @@ void ADemo_GASCharacter::Look(const FInputActionValue& Value)
 }
 
 #pragma endregion
-
-// 原力抓取
-void ADemo_GASCharacter::Interact()
-{
-	AActor* HitActor = OutHit.GetActor();
-	
-	if (IInteraction* Interact = Cast<IInteraction>(HitActor))
-	{
-		if (Interact->GetItemType() == EItemType::EIT_PhysicsObject) // 物理对象
-		{
-			Interact->PickAndDrop(UnVisibleHand);
-		}
-		else // 工具
-		{
-			if (!PickedUpItem)
-			{
-				PickedUpItem = Cast<AItemBase>(HitActor);
-				Interact->Equip(this, RightHand);
-			}
-			else
-			{
-				PickedUpItem->DropItem();
-				PickedUpItem = nullptr;
-			}
-		}
-	}
-}
-
-void ADemo_GASCharacter::Throw()
-{
-	if (PickedUpItem)
-	{
-		PickedUpItem->DropItem();
-		PickedUpItem = nullptr;
-	}
-}
-

@@ -44,7 +44,7 @@ struct FItemProperty : public FTableRowBase
 };
 
 USTRUCT(BlueprintType)
-struct FItemSlot : public FTableRowBase
+struct FItemSlot
 {
 	GENERATED_BODY()
 
@@ -62,7 +62,7 @@ struct FItemSlot : public FTableRowBase
 };
 
 USTRUCT(BlueprintType, Blueprintable)
-struct FInventoryItem : public FTableRowBase
+struct FInventoryItem
 {
 	GENERATED_BODY()
 

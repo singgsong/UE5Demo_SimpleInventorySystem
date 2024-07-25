@@ -8,9 +8,6 @@ class UInputMappingContext;
 class UInteractionWidget;
 class UInventoryComponent;
 
-/**
- * 
- */
 UCLASS()
 class DEMO_GAS_API AMyPlayerController : public APlayerController
 {

@@ -1,6 +1,4 @@
-﻿// Copyright Epic Games, Inc. All Rights Reserved.
-
-#pragma once
+﻿#pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
@@ -10,8 +8,6 @@ class USpringArmComponent;
 class UCameraComponent;
 class UInputAction;
 struct FInputActionValue;
-class UPhysicsHandleComponent;
-class AItemBase;
 class USceneCaptureComponent2D;
 
 DECLARE_DELEGATE(FOnUseHeldItem)
@@ -24,8 +20,6 @@ class ADemo_GASCharacter : public ACharacter
 
 public:
 	ADemo_GASCharacter();
-
-	virtual void Tick(float DeltaSeconds) override;
 
 	FOnUseHeldItem OnUseHeldItem;
 	FORCEINLINE UStaticMesh* GetWeaponMesh() const;
@@ -40,9 +34,6 @@ protected:
 
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
-
-	void Interact();
-	void Throw();
 
 #pragma region 运动系统变量
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -69,38 +60,7 @@ protected:
 	TArray<AActor*> ActorsToIgnore;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UInputAction> InteractAction;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UInputAction> ThrowAction;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<USceneComponent> UnVisibleHand;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<USceneComponent> RightHand;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UPhysicsHandleComponent> PhysicsHandle;
-
-	UPROPERTY(EditAnywhere)
-	float InteractionDistance = 100;
-
-	FHitResult OutHit;
-	bool bTracedItem = false;
-
-	UPROPERTY(EditAnywhere)
-	float HoldingDistance = 100;
-
-	UPROPERTY(VisibleAnywhere)
-	TObjectPtr<AItemBase> EquippedItem;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<AItemBase> PickedUpItem;
-
-	UPROPERTY(EditAnywhere)
-	float ThrowVector = 10000;
-
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<USceneCaptureComponent2D> SceneCapture2D;
@@ -111,11 +71,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<UStaticMeshComponent> Shield;
 
-
 public:
 	FORCEINLINE USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	FORCEINLINE UCameraComponent* GetFollowCamera() const { return Camera; }
-	FORCEINLINE USceneComponent* GetRightHand() const { return RightHand; }
 	FORCEINLINE UStaticMeshComponent* GetWeapon() const { return Weapon; }
 	FORCEINLINE UStaticMeshComponent* GetShield() const { return Shield; }
 
